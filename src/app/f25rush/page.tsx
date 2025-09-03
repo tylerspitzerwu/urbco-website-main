@@ -71,7 +71,7 @@ export default function StudentsPage() {
                 <div className="text-sm uppercase tracking-wide text-muted">Tuesday 9/2</div>
                 <div className="mt-1 text-xl md:text-2xl font-semibold tracking-tight">General Meeting 2</div>
                 <p className="mt-2 text-sm md:text-base text-muted">7:00pm - 9:00pm</p>
-                <p className="text-sm md:text-base text-muted">North Quad 1175</p>
+                <p className="text-sm md:text-base text-muted">North Quad 1255</p>
               </ElectricBorder>
               <div className="p-4 rounded-2xl border border-white/10 bg-white/5 md:col-span-1">
                 <p className="text-sm md:text-base text-muted">After this meeting, the application is due on Thursday 9/4 at 11:59pm!</p>
@@ -95,7 +95,7 @@ export default function StudentsPage() {
                 <div className="text-sm uppercase tracking-wide text-muted">Friday 9/5</div>
                 <div className="mt-1 text-xl md:text-2xl font-semibold tracking-tight">Optimization Challenge</div>
                 <p className="mt-2 text-sm md:text-base text-muted">6:00pm - 8:00pm</p>
-                <p className="text-sm md:text-base text-muted">Location TBD</p>
+                <p className="text-sm md:text-base text-muted">Mason Hall 1427</p>
               </ElectricBorder>
               <div className="p-4 rounded-2xl border border-white/10 bg-white/5 md:col-span-1">
                 <p className="text-sm md:text-base text-muted">Collaborate with teammates to craft a solution to a fun case study problem.</p>
