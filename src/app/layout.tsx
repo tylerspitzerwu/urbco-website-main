@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "URB Consulting | University of Michigan",
   description:
     "URB Consulting is the first and only urban technology consulting organization at the University of Michigan. We deliver pro-bono client projects, professional development, and community.",
-  metadataBase: new URL("https://urbconsulting.org"),
+  metadataBase: new URL("https://urbumich.com"),
   openGraph: {
     title: "URB Consulting | University of Michigan",
     description:

@@ -22,7 +22,7 @@ export default function ClientsPage() {
         </div>
       </section>
       <section className="mt-12">
-        <a href="mailto:hello@urbconsulting.org" className="inline-flex items-center rounded-full bg-urb-maize text-urb-blue font-medium px-5 py-3 shadow-[0_0_0_1px_rgba(255,203,5,0.3)] hover:shadow-[0_0_0_3px_rgba(255,203,5,0.2)] transition-shadow">Start a project</a>
+        <a href="mailto:hello@urbumich.com" className="inline-flex items-center rounded-full bg-urb-maize text-urb-blue font-medium px-5 py-3 shadow-[0_0_0_1px_rgba(255,203,5,0.3)] hover:shadow-[0_0_0_3px_rgba(255,203,5,0.2)] transition-shadow">Start a project</a>
       </section>
     </main>
   );
