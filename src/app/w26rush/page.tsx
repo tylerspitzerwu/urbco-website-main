@@ -6,7 +6,7 @@ export default function StudentsPage() {
   return (
     <main className="mx-auto max-w-7xl px-6 py-16 md:py-24">
       <h1 className="text-4xl text-center text-urb-maize md:text-7xl font-semibold leading-[1.1] tracking-tight">
-        F25 Rush
+        W26 Rush
       </h1>
       <p className="mt-5 text-2xl md:text-3xl text-white text-center max-w-8xl mx-auto">
         UMich&apos;s first and only urban tech consulting organization wants to get to know you!
@@ -25,7 +25,7 @@ export default function StudentsPage() {
           <iframe
             className="absolute inset-0 h-full w-full"
             src="https://www.youtube.com/embed/qrLDAO7Px7Q?autoplay=1&mute=1&playsinline=1"
-            title="URB Consulting - F25 Rush"
+            title="URB Consulting - W26 Rush"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
