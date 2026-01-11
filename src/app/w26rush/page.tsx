@@ -15,7 +15,7 @@ export default function StudentsPage() {
         <Link href="https://forms.gle/AYjZfYS5bDP6kyKj6" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full bg-urb-maize text-urb-blue font-medium px-5 py-3 shadow-[0_0_0_1px_rgba(255,203,5,0.3)] hover:shadow-[0_0_0_3px_rgba(255,203,5,0.2)] transition-shadow">
           Interest Form
         </Link>
-        <Link href="https://tally.so/r/3q94Y9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full bg-urb-maize text-urb-blue font-medium px-5 py-3 shadow-[0_0_0_1px_rgba(255,203,5,0.3)] hover:shadow-[0_0_0_3px_rgba(255,203,5,0.2)] transition-shadow">
+        <Link href="https://tally.so/r/A7p7Xz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full bg-urb-maize text-urb-blue font-medium px-5 py-3 shadow-[0_0_0_1px_rgba(255,203,5,0.3)] hover:shadow-[0_0_0_3px_rgba(255,203,5,0.2)] transition-shadow">
           Application
         </Link>
       </div>
@@ -57,7 +57,7 @@ export default function StudentsPage() {
             <div className="grid md:grid-cols-3 items-stretch gap-4">
               <ElectricBorder className="p-6 bg-white/5 md:col-span-2">
                 <div className="text-sm uppercase tracking-wide text-muted">Thursday 1/15</div>
-                <div className="mt-1 text-xl md:text-2xl font-semibold tracking-tight">General Meeting 1 (Hybrid)</div>
+                <div className="mt-1 text-xl md:text-2xl font-semibold tracking-tight">General Meeting 1</div>
                 <p className="mt-2 text-sm md:text-base text-muted">6:00pm - 8:00pm</p>
                 <p className="text-sm md:text-base text-muted">NUB 1544</p>
               </ElectricBorder>
@@ -69,7 +69,7 @@ export default function StudentsPage() {
             <div className="grid md:grid-cols-3 items-stretch gap-4">
               <ElectricBorder className="p-6 bg-white/5 md:col-span-2">
                 <div className="text-sm uppercase tracking-wide text-muted">Friday 1/16</div>
-                <div className="mt-1 text-xl md:text-2xl font-semibold tracking-tight">General Meeting 2</div>
+                <div className="mt-1 text-xl md:text-2xl font-semibold tracking-tight">General Meeting 2 (Hybrid)</div>
                 <p className="mt-2 text-sm md:text-base text-muted">6:00pm - 8:00pm</p>
                 <p className="text-sm md:text-base text-muted">North Quad 2255</p>
               </ElectricBorder>
@@ -79,7 +79,7 @@ export default function StudentsPage() {
             </div>
 
             {/* Application Due Callout */}
-            <div className="rounded-2xl bg-urb-maize text-urb-blue p-6 text-center font-medium shadow-[0_0_0_1px_rgba(255,203,5,0.35)]">
+            <div className="rounded-2xl bg-[#692c61] text-urb-maize p-6 text-center font-medium shadow-[0_0_0_1px_rgba(105,44,97,0.35)]">
               Application due 1/18 at 11:59pm
             </div>
           </div>

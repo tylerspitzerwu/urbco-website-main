@@ -142,7 +142,9 @@ export default function Home() {
                   text={[
                     "Urban Technology.",
                     "Computer Science.",
+                    "Business.",
                     "Industrial and Operations Engineering.",
+                    "Information Analysis.",
                     "Environment.",
                     "Economics.",
                     "Civil Engineering.",

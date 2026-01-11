@@ -80,9 +80,8 @@ export default function AboutPage() {
           <p className="text-foreground/90">
             URB Consulting is rooted in the University of Michigan’s Urban Technology program. 
             The founding of the club was inspired by a need for students in the Urban Tech program to gain professional experience. 
-            At the time, the program was just in its infancy and had no graduates yet, 
-            meaning it wasn&apos;t particularly clear what the professional world of UT actually looked like. 
-            So, we set out to create those opportunities ourselves.
+            We set out to create those opportunities ourselves by building a consulting group focused on 
+            interdisciplinary projects for companies building technology spanning the physical and digital worlds.
             <br /><br />
             Now, we are proudly associated with the Taubman College of Architecture and Urban Planning, 
             the School of Information, and the College of Engineering, and we recruit members from across the 
@@ -98,7 +97,7 @@ export default function AboutPage() {
           </p>
         </div>
         <div className="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5">
-          <Image src="/images/about_pics/URB_group_photo.JPG" alt="URB Consulting executive board" width={1600} height={1066} className="w-full h-80 md:h-[420px] object-cover" />
+          <Image src="/images/about_pics/groupM.JPG" alt="URB Consulting executive board" width={1600} height={1500} className="w-full h-96 md:h-[600px] object-cover" />
         </div>
       </section>
       
