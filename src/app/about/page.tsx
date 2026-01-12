@@ -10,46 +10,11 @@ type BoardMember = {
 
 const executiveBoard: BoardMember[] = [
   {
-    name: "Aditya Nimbalkar",
+    name: "Tyler Spitzer-Wu",
     role: "President",
     major: "Urban Technology",
-    image: "/images/about_pics/headshots/aditya.jpeg",
-    linkedin: "https://www.linkedin.com/in/adnim/",
-  },
-  {
-    name: "Trini Sernas",
-    role: "VP Community",
-    major: "Urban Technology",
-    image: "/images/about_pics/headshots/trini.jpeg",
-    linkedin: "https://www.linkedin.com/in/trini-sernas-abb4ba300/",
-  },
-  {
-    name: "Arjun Suri",
-    role: "VP Recruitment",
-    major: "Industrial and Operations Engineering",
-    image: "/images/about_pics/headshots/arjun.jpeg",
-    linkedin: "https://www.linkedin.com/in/rjunsuri/",
-  },
-  {
-    name: "Sarah Klemmer",
-    role: "VP Professional Development",
-    major: "Computer Science + Cognitive Science",
-    image: "/images/about_pics/headshots/sarah.jpeg",
-    linkedin: "https://www.linkedin.com/in/sarahklemmer/",
-  },
-  {
-    name: "Pranav Boopalam",
-    role: "VP Client Acquisition",
-    major: "Urban Technology + Computer Science",
-    image: "/images/about_pics/headshots/pranav.jpeg",
-    linkedin: "https://www.linkedin.com/in/pranav-boopalam/",
-  },
-  {
-    name: "Jonathan Lou",
-    role: "VP Finance",
-    major: "Urban Technology",
-    image: "/images/about_pics/headshots/jonathan.jpeg",
-    linkedin: "https://www.linkedin.com/in/huy-dung-lou-3b67a0250/",
+    image: "/images/about_pics/headshots/tyler.jpg",
+    linkedin: "https://www.linkedin.com/in/tspitzerwu/",
   },
   {
     name: "Sophia Liu",
@@ -59,11 +24,46 @@ const executiveBoard: BoardMember[] = [
     linkedin: "https://www.linkedin.com/in/sophialiu12/",
   },
   {
-    name: "Tyler Spitzer-Wu",
-    role: "VP External Affairs",
+    name: "Arjun Suri",
+    role: "VP Recruitment",
+    major: "Industrial and Operations Engineering",
+    image: "/images/about_pics/headshots/arjun.jpeg",
+    linkedin: "https://www.linkedin.com/in/rjunsuri/",
+  },
+  {
+    name: "Rio Tanabe",
+    role: "VP Finance",
     major: "Urban Technology",
-    image: "/images/about_pics/headshots/tyler.jpg",
-    linkedin: "https://www.linkedin.com/in/tspitzerwu/",
+    image: "/images/about_pics/headshots/rio.jpeg",
+    linkedin: "https://www.linkedin.com/in/rio-tanabe-152696232/",
+  },
+  {
+    name: "Pranav Joshi",
+    role: "VP Professional Development",
+    major: "Computer Science",
+    image: "/images/about_pics/headshots/joshi.jpeg",
+    linkedin: "https://www.linkedin.com/in/pranavv-joshi/",
+  },
+  {
+    name: "Andy Liang",
+    role: "VP Client Relations",
+    major: "Computer Science + Economics",
+    image: "/images/about_pics/headshots/andy.jpeg",
+    linkedin: "https://www.linkedin.com/in/yanhang-liang/",
+  },
+  {
+    name: "Dana Clocker",
+    role: "VP External Affairs",
+    major: "Information Analysis",
+    image: "/images/about_pics/headshots/dana.jpeg",
+    linkedin: "https://www.linkedin.com/in/dana-clocker/",
+  },
+  {
+    name: "Colin Madden",
+    role: "VP Community",
+    major: "Civil Engineering",
+    image: "/images/about_pics/headshots/colin.jpeg",
+    linkedin: "https://www.linkedin.com/in/colinkmadden/",
   },
 ];
 
@@ -76,9 +76,12 @@ export default function AboutPage() {
       
       {/* Intro + Executive Board */}
       <section className="mt-10 grid md:grid-cols-2 gap-10 items-center">
+      <div className="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5">
+          <Image src="/images/about_pics/groupM.JPG" alt="URB Consulting executive board" width={1600} height={1500} className="w-full h-96 md:h-[600px] object-cover" />
+        </div>
         <div className="space-y-4">
-          <p className="text-foreground/90">
-            URB Consulting is rooted in the University of Michigan’s Urban Technology program. 
+          <p className="text-lg md:text-xl text-foreground/90">
+            URB Consulting is rooted in the University of Michigan&apos;s Urban Technology program. 
             The founding of the club was inspired by a need for students in the Urban Tech program to gain professional experience. 
             We set out to create those opportunities ourselves by building a consulting group focused on 
             interdisciplinary projects for companies building technology spanning the physical and digital worlds.
@@ -86,19 +89,10 @@ export default function AboutPage() {
             Now, we are proudly associated with the Taubman College of Architecture and Urban Planning, 
             the School of Information, and the College of Engineering, and we recruit members from across the 
             University&apos;s 19 colleges. Our strength is rooted in this diversity of backgrounds, with current members 
-            having experience with a broad variety of roles/companies:
-            <br /><br />
-            • Technical Program Management at Microsoft<br />
-            • Operations at GE<br />
-            • Strategy at General Motors<br />
-            • Real Estate Development at McDonald&apos;s<br />
-            • Product at various real estate startups<br />
-            • Software Engineering at CGI Consulting<br />
+            having experience across technology, consulting, real estate, finance, startups, automotive, and more!
           </p>
         </div>
-        <div className="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5">
-          <Image src="/images/about_pics/groupM.JPG" alt="URB Consulting executive board" width={1600} height={1500} className="w-full h-96 md:h-[600px] object-cover" />
-        </div>
+        
       </section>
       
       {/* Executive Board Grid */}

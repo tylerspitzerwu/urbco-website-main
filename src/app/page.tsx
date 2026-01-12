@@ -3,6 +3,7 @@ import Link from "next/link";
 import TextType from "@/components/TextType";
 import Waves from "@/components/Waves";
 import ClientOnly from "@/components/ClientOnly";
+import LogoLoop from "@/components/LogoLoop";
 
 export default function Home() {
   return (
@@ -43,82 +44,138 @@ export default function Home() {
         <section className="mx-auto max-w-7xl px-6 py-20 md:py-24">
           <h2 className="text-2xl md:text-7xl font-semibold tracking-tight mb-12">What is Urban Technology?</h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Company Logos */}
-            <div className="space-y-6">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="relative h-28 md:h-32 flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
-                  <Image 
-                    src="/images/company_logos/airbnb.png" 
-                    alt="Airbnb" 
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-contain filter opacity-80 hover:opacity-100 transition-opacity transform scale-85" 
-                  />
-                </div>
-                <div className="relative h-28 md:h-32 flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
-                  <Image 
-                    src="/images/company_logos/google.webp" 
-                    alt="Google" 
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-contain filter opacity-80 hover:opacity-100 transition-opacity transform scale-90" 
-                  />
-                </div>
-                <div className="relative h-28 md:h-32 flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
-                  <Image 
-                    src="/images/company_logos/microsoft.png" 
-                    alt="Microsoft" 
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-contain filter opacity-80 hover:opacity-100 transition-opacity transform scale-85" 
-                  />
-                </div>
-                <div className="relative h-28 md:h-32 flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
-                  <Image 
-                    src="/images/company_logos/waymo.png" 
-                    alt="Waymo" 
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-contain filter opacity-80 hover:opacity-100 transition-opacity" 
-                  />
-                </div>
+            {/* Image with Caption */}
+            <div className="space-y-4">
+              <div className="relative w-full aspect-[18/16] rounded-xl overflow-hidden ring-1 ring-white/10">
+                <Image 
+                  src="/images/viewfromJPMC.JPG" 
+                  alt="View from JPMorgan Chase" 
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover" 
+                />
               </div>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="relative h-28 md:h-32 flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
-                  <Image 
-                    src="/images/company_logos/lime.png" 
-                    alt="Lime" 
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-contain filter opacity-80 hover:opacity-100 transition-opacity" 
-                  />
-                </div>
-                <div className="relative h-28 md:h-32 flex items-center justify-center p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
-                  <Image 
-                    src="/images/company_logos/arup.png" 
-                    alt="Arup" 
-                    fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-contain filter opacity-80 hover:opacity-100 transition-opacity" 
-                  />
-                </div>
-              </div>
+              <p className="text-sm text-muted text-center">The view from our visit to JPMorganChase&apos;s new HQ in NYC!</p>
             </div>
             
             {/* Text Content */}
             <div className="max-w-xl">
               <p className="text-base md:text-lg text-foreground/90">
-                Urban Technology is the use of tech products and services to solve problems related to cities and/or the built environment.
+                Urban Technology is technology that spans the digital and physical worlds. Think of platforms like Uber, Google Maps, and Airbnb; and industries like real estate, mobility, and energy.
                 <br /><br />
-                 It&apos;s easiest to think of UT as an umbrella term that spans a cluster of industries and professions, including mobility (rideshare, AVs, micromobility), real estate (data centers, sustainability), placemaking (architecture, urban planning), policy, and digital design (UI/UX, dataviz).
-                  Some familiar examples of urban tech in action are companies like Uber and Airbnb, or the public sector divisions of companies like Microsoft and Google.
+                 At URB Consulting, we do interdisciplinary projects for urban technology companies and institutions. These projects, which span strategy, software engineering, policy research, UX design, 
+                 and more, give you the opportunity to provide real business value while developing a wide variety of skills that will help you launch your career.
               </p>
               <div className="border-t border-white/10 my-4"></div>
               <p className="text-base md:text-lg text-foreground/90">
-                <span className="text-urb-maize">The University of Michigan is the only university in the world containing an undergraduate degree in Urban Technology. 
-                URB Consulting connects driven and entrepreneurial students interested in Urban Tech with the professional world of this emerging field.</span>
+                <span className="text-urb-maize">URB is the only consulting group operating in this niche! Apply if you want to develop transferrable skills 
+                  for any career, forge connections across both burgeoning industries and long-standing companies, and join a community that will make your college experinece meaningful!</span>
               </p>
             </div>
+          </div>
+        </section>
+
+        
+        {/* What We Do */}
+        <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+          <h2 className="text-4xl md:text-7xl font-semibold tracking-tight mb-12">What we do</h2>
+
+          {/* Client projects */}
+          <div className="mt-12 rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12">
+            <div className="space-y-4">
+              <h3 className="text-2xl md:text-4xl font-semibold tracking-tight">
+                <span className="text-urb-maize">Client projects</span> that help you develop skills for your resume and for life.
+              </h3>
+              <p className="text-base md:text-lg text-muted">
+                Our client projects will help you develop the interdisciplinary skills needed for your professional aspirations.
+              </p>
+              <div className="flex flex-wrap gap-3 text-sm text-muted">
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Go-To-Market</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">UX Design</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Data Visualization</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Policy Research</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Product Strategy</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Data Analysis</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Web/App Development</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Market Entry</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Professional development */}
+          <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12">
+            <div className="space-y-6">
+              <h3 className="text-2xl md:text-4xl font-semibold tracking-tight">
+                <span className="text-urb-maize">Professional development</span> opportunities for discovery and networking.
+              </h3>
+              <p className="text-base md:text-lg text-muted">
+                URB members attend professional treks and speaker events with industry-leading individuals and companies in consulting and urban tech. We plan these engagements with one goal in mind: to help you learn as much as possible.
+              </p>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <Image src="/images/jpmcf25.jpeg" alt="Professional development" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
+                  <p className="mt-3 text-sm text-muted">JPMorganChase NYC HQ Visit, F25</p>
+                </div>
+                <div>
+                  <Image src="/images/newlabf25.jpeg" alt="Professional development" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
+                  <p className="mt-3 text-sm text-muted">Newlab Brooklyn Startup Incubator Visit, F25</p>
+                </div>
+                <div>
+                  <Image src="/images/IMG_0545.JPG" alt="Professional development" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
+                  <p className="mt-3 text-sm text-muted">Newlab Detroit Networking Day, W25</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Social events */}
+          <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12">
+            <div className="space-y-6">
+              <h3 className="text-2xl md:text-4xl font-semibold tracking-tight">
+                A <span className="text-urb-maize">community</span> of friends that will amplify your UMich experience!
+              </h3>
+              <p className="text-base md:text-lg text-muted">
+                We prioritize our community above all else. Join URB and meet your new best friends!
+              </p>
+              <div className="grid grid-cols-3 gap-4">
+                <Image src="/images/pic1.jpeg" alt="Social events" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
+                <Image src="/images/pic2.jpeg" alt="Social events" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
+                <Image src="/images/pic3.jpeg" alt="Social events" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
+                <Image src="/images/pic4.jpeg" alt="Social events" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
+                <Image src="/images/pic5.jpeg" alt="Social events" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
+                <Image src="/images/pic6.JPEG" alt="Social events" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Where we've been */}
+        <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+          <h2 className="text-3xl md:text-6xl font-semibold tracking-tight mb-12">Where we&apos;ve been...</h2>
+          <div className="relative" style={{ height: '120px' }}>
+            <LogoLoop
+              logos={[
+                { src: "/images/company_logos/microsoft.png", alt: "Microsoft" },
+                { src: "/images/company_logos/adobe.png", alt: "Adobe" },
+                { src: "/images/company_logos/datadog.svg", alt: "Datadog" },
+                { src: "/images/company_logos/kpmg.webp", alt: "KPMG" },
+                { src: "/images/company_logos/accenture.png", alt: "Accenture" },
+                { src: "/images/company_logos/bofa.png", alt: "BofA" },
+                { src: "/images/company_logos/mcdonalds.webp", alt: "McDonald's" },
+                { src: "/images/company_logos/gm.png", alt: "GM" },
+                { src: "/images/company_logos/lucid.jpg", alt: "Lucid" },
+                { src: "/images/company_logos/aecom.jpg", alt: "AECOM" },
+              ]}
+              speed={80}
+              direction="left"
+              logoHeight={80}
+              gap={60}
+              hoverSpeed={20}
+              fadeOut
+              fadeOutColor="#070A0F"
+              scaleOnHover
+              ariaLabel="Companies and organizations we've worked with"
+            />
           </div>
         </section>
 
@@ -166,68 +223,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* What We Do */}
-        <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-          <div className="text-center max-w-5xl mx-auto">
-            <h2 className="text-4xl md:text-7xl font-semibold tracking-tight">What we do</h2>
-          </div>
-
-          {/* Client projects */}
-          <div className="mt-12 rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12">
-            <div className="space-y-4">
-              <h3 className="text-2xl md:text-4xl font-semibold tracking-tight">
-                Meaningful client projects that help you develop skills for your resume and for life.
-              </h3>
-              <p className="text-base md:text-lg text-muted">
-                Our client projects will help you develop the interdisciplinary skills needed for your professional aspirations.
-              </p>
-              <div className="flex flex-wrap gap-3 text-sm text-muted">
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Go-To-Market</span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">UX Design</span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Data Visualization</span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Policy Research</span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Product Strategy</span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Civic Tech</span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Strategic Foresight</span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Market Entry Strategy</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Professional development */}
-          <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12">
-            <div className="space-y-6">
-              <h3 className="text-2xl md:text-4xl font-semibold tracking-tight">
-                Professional development opportunities for discovery and networking.
-              </h3>
-              <p className="text-base md:text-lg text-muted">
-                We organize speaker events and treks involving leaders in the urban tech world, ranging from industry vets to startup founders. At our trek to startup hub Newlab Detroit last year, we met 5 startups and their founders, who gave us insights on how to win in this emerging field
-              </p>
-              <div className="grid grid-cols-3 gap-4">
-                <Image src="/images/IMG_0545.JPG" alt="Professional development" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
-                <Image src="/images/IMG_0300.jpeg" alt="Professional development" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
-                <Image src="/images/IMG_0296.jpeg" alt="Professional development" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
-              </div>
-            </div>
-          </div>
-
-          {/* Social events */}
-          <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12">
-            <div className="space-y-6">
-              <h3 className="text-2xl md:text-4xl font-semibold tracking-tight">
-                Mixers, tailgates, and other events with clubs across campus.
-              </h3>
-              <p className="text-base md:text-lg text-muted">
-                The normal rhythm of internal club meetings and events along with the external events we organize give our members the opportunity to form close social bonds and find a community with like-minded people.
-              </p>
-              <div className="grid grid-cols-3 gap-4">
-                <Image src="/images/IMG_9783 (1).JPG" alt="Social events" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
-                <Image src="/images/blue_team.jpeg" alt="Social events" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
-                <Image src="/images/20250402_070042_0998CA.JPEG" alt="Social events" width={800} height={600} className="rounded-xl ring-1 ring-white/10 w-full h-48 md:h-64 object-cover" />
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* W26 Rush CTA */}
         <section className="mx-auto max-w-4xl px-6 py-16 md:py-24">
