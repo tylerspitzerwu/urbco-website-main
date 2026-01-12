@@ -77,7 +77,7 @@ export default function AboutPage() {
       {/* Intro + Executive Board */}
       <section className="mt-10 grid md:grid-cols-2 gap-10 items-center">
       <div className="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5">
-          <Image src="/images/about_pics/groupM.JPG" alt="URB Consulting executive board" width={1600} height={1500} className="w-full h-96 md:h-[600px] object-cover" />
+          <Image src="/images/about_pics/groupM.JPG" alt="URB Consulting" width={1600} height={1500} className="w-full h-96 md:h-[600px] object-cover" />
         </div>
         <div className="space-y-4">
           <p className="text-lg md:text-xl text-foreground/90">
