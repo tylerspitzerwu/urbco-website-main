@@ -80,7 +80,7 @@ export default function StudentsPage() {
 
             {/* Application Due Callout */}
             <div className="rounded-2xl bg-[#692c61] text-urb-maize p-6 text-center font-medium shadow-[0_0_0_1px_rgba(105,44,97,0.35)]">
-              Application due 1/18 at 11:59pm
+              Application due Sunday 1/18 at 11:59pm
             </div>
           </div>
 
