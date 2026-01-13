@@ -55,7 +55,7 @@ export default function Home() {
                   className="object-cover" 
                 />
               </div>
-              <p className="text-sm text-muted text-center">The view from our visit to JPMorganChase&apos;s new HQ in NYC!</p>
+              <p className="text-sm text-muted text-center">The view from our F25 visit to JPMorganChase&apos;s new HQ in NYC!</p>
             </div>
             
             {/* Text Content */}
