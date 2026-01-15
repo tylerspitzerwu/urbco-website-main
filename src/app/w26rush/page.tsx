@@ -57,12 +57,12 @@ export default function StudentsPage() {
             <div className="grid md:grid-cols-3 items-stretch gap-4">
               <ElectricBorder className="p-6 bg-white/5 md:col-span-2">
                 <div className="text-sm uppercase tracking-wide text-muted">Thursday 1/15</div>
-                <div className="mt-1 text-xl md:text-2xl font-semibold tracking-tight">General Meeting 1</div>
+                <div className="mt-1 text-xl md:text-2xl font-semibold tracking-tight">General Meeting 1 (Hybrid)</div>
                 <p className="mt-2 text-sm md:text-base text-muted">6:00pm - 8:00pm</p>
-                <p className="text-sm md:text-base text-muted">NUB 1544</p>
+                <p className="text-sm md:text-base text-muted">North University Building 1544 or <Link href="https://umich.zoom.us/j/3519980123" target="_blank" rel="noopener noreferrer" className="underline hover:text-urb-maize transition-colors">Zoom</Link></p>
               </ElectricBorder>
               <div className="p-4 rounded-2xl border border-white/10 bg-white/5 md:col-span-1">
-                <p className="text-sm md:text-base text-muted">Please come to a General Meeting for your application to be considered!</p>
+                <p className="text-sm md:text-base text-muted">Please come to a General Meeting for your application to be considered! We recommend attending in person.</p>
               </div>
             </div>
 
@@ -71,7 +71,7 @@ export default function StudentsPage() {
                 <div className="text-sm uppercase tracking-wide text-muted">Friday 1/16</div>
                 <div className="mt-1 text-xl md:text-2xl font-semibold tracking-tight">General Meeting 2 (Hybrid)</div>
                 <p className="mt-2 text-sm md:text-base text-muted">6:00pm - 8:00pm</p>
-                <p className="text-sm md:text-base text-muted">North Quad 2255</p>
+                <p className="text-sm md:text-base text-muted">North Quad 2255 or <Link href="https://umich.zoom.us/j/3519980123" target="_blank" rel="noopener noreferrer" className="underline hover:text-urb-maize transition-colors">Zoom</Link></p>
               </ElectricBorder>
               <div className="p-4 rounded-2xl border border-white/10 bg-white/5 md:col-span-1">
                 <p className="text-sm md:text-base text-muted">After this meeting, our application is due on Sunday 1/18 at 11:59pm!</p>

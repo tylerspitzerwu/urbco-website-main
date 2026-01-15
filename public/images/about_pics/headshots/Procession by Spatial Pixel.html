@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="mask-icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"> <!-- for Safari-->
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <title>Procession by Spatial Pixel</title>
+    
+    <script src="p5.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/vision_bundle.js" crossorigin="anonymous"></script>
+    <script type="module" crossorigin src="/assets/index-c2ad4f94.js"></script>
+    <link rel="stylesheet" href="/assets/index-b72bd192.css">
+  </head>
+  <body>
+    <div class="container tab-chat">
+      <header class="hide-in-present">
+        <h1>
+          <button id="procession">Procession</button>
+        </h1>
+        
+        <nav class="hide-in-iterate">→ <dropdown-menu id="projects-list-dropdown" class="dropdown-big">
+            <span slot="button-text">Projects</span>
+            <div class="dropdown-scrollable">
+              <projects-list></projects-list>
+            </div>
+          </dropdown-menu> → <input type="text" id="project-name-input" />
+        </nav>
+        
+        <div style="flex-grow: 2"></div>
+        
+        <div class="right">
+          <dropdown-menu id="state-dropdown" class="dropdown-right dropdown-widest hide-in-iterate">
+            <span slot="button-text">Variables</span>
+            <state-manager data-scope="global"></state-manager>
+          </dropdown-menu>
+          
+          <dropdown-menu id="assets-dropdown" class="dropdown-right dropdown-widest hide-in-iterate">
+            <span slot="button-text">Assets</span>
+            <assets-list></assets-list>
+          </dropdown-menu>
+          
+          <dropdown-menu class="dropdown-right dropdown-wide hide-in-iterate">
+            <span slot="button-text">About</span>
+            <p>
+              Procession is a project built and maintained by 
+              <a href="https://spatialpixel.com" target="_blank">Spatial&nbsp;Pixel</a>.
+            </p>
+            <p>
+              <a href="https://spatialpixel.com/procession/learn/" target="_blank">
+                Find the reference and documentation here.</a>
+            </p>
+          </dropdown-menu>
+          
+          <dropdown-menu class="dropdown-right dropdown-wide hide-in-iterate">
+            <span slot="button-text">Settings</span>
+            <ul>
+              <li>
+                <label>OpenAI API Key</label>
+                <div id="openai-api-key-form">
+                  <input type="password" id="openai-api-key" autocomplete="new-password" />
+                  <button id="toggle-openai-key-visibility">👁️</button>
+                </div>
+                <p class="small">
+                  Note that this isn't best practice to enter an API key into a web app
+                  like this. While it isn't stored outside of your browser, a malicious
+                  script or browser extension could still access it. Ensure your account
+                  has strict limits on API spend and change this API key often.
+                </p>
+              </li>
+              
+              <li>
+                <hr>
+                <input type="checkbox" id="invert-colors">
+                <label for="invert-colors">Invert color scheme</label>
+              </li>
+              
+              <li>
+                <hr>
+                <collapsible-element>
+                  <span slot="title">IFTTT</span>
+                  <label>IFTTT Api Key</label>
+                  <input id="ifttt-api-key" type="text" />
+                  <p class="small">
+                    This is an experimental feature. Please input your API key 
+                    for IFTTT here. This is stored locally in the browser.
+                  </p>
+                </collapsible-element>
+              </li>
+              
+              <li>
+                <hr>
+                <collapsible-element>
+                  <span slot="title">Advanced</span>
+                  <input type="checkbox" id="experiment-limited-history">
+                  <label for="experiment-limited-history">Experimental: Limit message history.</label>
+                  <hr>
+                  <div>
+                    <label for="server-url">Server URL</label>
+                    <input id="server-url" type="text" placeholder="ws://localhost:4000" />
+                  </div>
+                  <button id="connect-to-server">Connect to Server</button>
+                </collapsible-element>
+              </li>
+              
+              <!-- <li>
+                <button id="stop-video">Stop all video</button>
+              </li> -->
+            </ul>
+          </dropdown-menu>
+          
+          <button id="refresh">Refresh</button>
+          <button id="enter-presentation">Present</button>
+          <button id="toggler">Toggle&nbsp;UI</button>
+        </div>
+      </header>
+      
+      <main>
+        <aside id="sidebar" class="sidebar hide-in-present">
+          <div class="tabs hide-in-iterate">
+            <button id="select-chat" class="selected">Prompt</button>
+            <button id="select-editor">Code Editor</button>
+            <button id="select-devices">Devices</button>
+            <!-- <button id="select-projection">Projection</button> -->
+            <!-- <button id="select-state">State</button> -->
+            
+            <select id="model-selector">
+              <option value="gpt-4o">gpt-4o</option>
+              <option value="gpt-4o-mini">gpt-4o-mini</option>
+              <option value="gpt-4-turbo">gpt-4-turbo</option>
+            </select>
+            
+            <!-- <button id="listen">Listen</button> -->
+            <button id="export" class="action">Export</button>
+          </div>
+          
+          <div id="tab-chat" class="tab selected">
+            <div id="prompt-input-container">
+              <span class="loader"></span>
+              
+              <div id="prompt">
+                <div contenteditable="true" id="prompt-input" class="hide-border-in-iterate"></div>
+              </div>
+            </div>
+            
+            <div id="expandable-chat-container" class="hide-in-iterate">
+              <div class="scrollable">
+                <div id="messages-list"></div>
+              </div>
+            </div> <!-- expandable-chat-container -->
+          </div> <!-- tab-chat -->
+          
+          <div id="tab-editor" class="tab hide-in-iterate">
+            <div id="code-editor"></div>
+            <div id="code-actions">
+              <button id="code-actions-save">Save this code</button>
+              <div style="flex-grow:2;"></div>
+              <button id="code-actions-run">Run</button>
+            </div>
+          </div> <!-- tab-editor -->
+          
+          <div id="tab-devices" class="tab hide-in-iterate">
+            <h2>Devices</h2>
+            
+            <hr>
+            <h3>Cameras</h3>
+            
+            <div class="row">
+              <label for="camera-select">Main Camera</label>
+              <select id="camera-select"></select>
+            </div>
+            
+            <div class="row">
+              <label for="camera-resolution">Resolution</label>
+              <select id="camera-resolution">
+                <option value="1920x1080">1920x1080 HD</option>
+                <option value="1280x720">1280x720</option>
+                <option value="3840x2160">3840x2160 4K</option>
+                <option value="4096x2160">4096x2160 4K</option>
+              </select>
+            </div>
+            
+            <hr>
+            <div class="row">
+              <h3>Serial Devices</h3>
+              <button id="add-serial-device">+ Add Serial Device</button>
+            </div>
+            <div id="serial-devices-list">
+              
+            </div>
+          </div>
+          
+          <!-- <div id="tab-projection" class="tab hide-in-iterate">
+            <button id="reset-projection">Reset</button>
+          </div> -->
+          
+          <div id="tab-state" class="tab hide-in-iterate">
+            <h2>State Management</h2>
+          </div>
+        </aside>
+        
+        <div id="content" class="content">
+          <div id="meta-sketch"></div>
+          <div id="sketch"></div>
+        </div>
+      </main>
+      
+      <footer><a href="https://spatialpixel.com" target="_blank">a spatial<strong>pixel</strong> project</a></footer>
+      
+      <butter-bar></butter-bar>
+    </div>
+
+    
+  </body>
+  
+  <template id="prompt-list-template">
+    <style>
+      .prompt-list {
+        padding: 0;
+        border-top: 1px solid #ccc;
+        margin-top: 20px;
+      }
+      
+      .prompt-list .prompt {
+        position: relative;
+        border-bottom: 1px solid #ccc;
+        padding: 10px;
+        cursor: pointer;
+      }
+      .prompt-list .prompt:hover {
+        background-color: #eee;
+      }
+      
+      .prompt-list .prompt button.delete-button {
+        display: none;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        
+        border: 2px solid red;
+        padding: 10px;
+        border-radius: 4px;
+      }
+      .prompt-list .prompt button.delete-button:hover {
+        cursor: pointer;
+        background-color: #f88;
+      }
+      .prompt-list .prompt button.delete-button:active {
+        background-color: #f55;
+      }
+      .prompt-list .prompt:hover button.delete-button {
+        display: block;
+      }
+
+      .prompt-title {
+        font-weight: bold;
+      }
+      .prompt-code {
+        color: #666;
+      }
+    </style>
+    
+    <div class="prompt-list"></div>
+  </template>
+  
+  <template id="dropdown-menu-template">
+    <style>
+      :host {
+        --dropdown-right: initial;
+        --dropdown-width: 160px;
+        --dropdown-button-font-size: 1rem;
+        --dropdown-button-height: 34px;
+        --dropdown-border-color: white;
+        --dropdown-button-border: 2px solid var(--dropdown-border-color);
+        --dropdown-button-background-color: transparent;
+        --primary-color: #f70;
+        --primary-color-lightened: #f90;
+      }
+      
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        font-family: 'Lexend', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        z-index: 100;
+        min-width: var(--dropdown-width);
+        min-height: 160px;
+        right: var(--dropdown-right);
+        max-height: 75vh;
+        padding: 8px;
+        color: var(--text-color);
+    
+        background-color: var(--background-color);
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        border: 2px dotted var(--dropdown-border-color);
+        border-radius: 3px;
+      
+        font-size: 1.0rem;
+        line-height: 1.5;
+      }
+      
+      ::slotted(.dropdown-scrollable) {
+        max-height: 75vh;
+        overflow-y: scroll;
+      }
+    
+      .dropdown-content.show {
+          display: block;
+      }
+      .dropdown-content a {
+          color: var(--text-color);
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+      }
+      .dropdown-content a:hover {
+          background-color: #ddd;
+      }
+      
+      button {
+        font-family: 'Lexend', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        border: var(--dropdown-button-border);
+        border-radius: 3px;
+        color: var(--text-color);
+        background-color: var(--dropdown-button-background-color);
+        padding: 4px 6px;
+        font-size: var(--dropdown-button-font-size);
+        border-color: var(--border-color);
+        height: var(--dropdown-button-height);
+      }
+      button:hover {
+        background-color: var(--primary-color);
+      }
+      button:active {
+        background-color: var(--primary-color-lightened);
+      }
+    
+      ::slotted(button) {
+        border: none;
+        display: block;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        padding: 4px;
+        width: 100%;
+        text-align: left;
+        border: none !important;
+        height: 34px;
+      }
+      ::slotted(button:hover) {
+        color: #222;
+        background-color: var(--primary-color-lightened);
+      }
+      ::slotted(button:active) {
+        background-color: var(--primary-color);
+      }
+      ::slotted(ul) {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-indent: 0;
+        font-size: 1.0rem;
+        color: var(--text-color);
+      }
+      ::slotted(input) {
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+      ::slotted(textarea) {
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+      ::slotted(select) {
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+    </style>
+    <div class="dropdown">
+      <button class="dropdown-toggle">
+        <slot name="button-text">Toggle</slot>
+      </button>
+      
+      <div class="dropdown-content">
+        <slot></slot>
+      </div>
+    </div>
+  </template> <!-- end dropdown-menu-template -->
+  
+  <template id="projects-list-template">
+    <style>
+      :host {
+        --primary-color: #f70;
+        --primary-color-lightened: #f90;
+        --primary-color-darkened: #c60;
+      }
+      
+      button {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      
+      button.action {
+        border: 2px solid var(--border-color);
+        border-radius: 3px;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        padding: 5px 6px;
+        font-size: 1rem;
+      }
+      button.action:hover {
+        background-color: var(--primary-color);
+      }
+      button.action:active {
+        background-color: var(--primary-color-lightened);
+      }
+      
+      .project {
+        display: flex;
+        flex-direction: row;
+      }
+      .project:hover {
+        background-color: var(--primary-color-darkened);
+      }
+      .project:hover button.delete {
+        visibility: visible;
+      }
+      .project.current {
+        color: #222;
+        background-color: var(--primary-color-darkened);
+      }
+      .project button {
+        display: block;
+        font-size: 1.2rem;
+        
+        color: var(--text-color);
+        background-color: transparent;
+        
+        padding: 6px 4px;
+        border: 1px solid transparent;
+      }
+      .project button:active {
+        color: #222;
+        background-color: var(--primary-color);
+      }
+      .project button.open {
+        flex-grow: 2;
+        text-align: left;
+      }
+      .project button.delete {
+        padding-left: 8px;
+        padding-right: 8px;
+        min-width: 36px;
+        text-align: center;
+        border-radius: 3px;
+        visibility: hidden;
+      }
+      .project button.delete:hover {
+        color: #222;
+        background-color: var(--primary-color);
+      }
+      .project button.delete:active {
+        color: #222;
+        background-color: var(--primary-color-lightened);
+      }
+      .project button.ready {
+        background-color: darkred;
+        visibility: visible;
+      }
+      .project button.ready:hover {
+        border: 1px solid var(--stroke-color);
+        color: var(--text-color);
+        background-color: darkred;
+      }
+      .project button.ready:active {
+        background-color: #BC0000;
+      }
+      
+      .actions {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 42px;
+        
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        
+        background-color: var(--background-color);
+        border-bottom: 2px dotted var(--text-color); /* Using the text color temporarily */
+        
+        padding: 0 6px 6px 6px;
+      }
+      .projects {
+        margin-top: 56px;
+      }
+      #delete-project {
+        border-color: darkred;
+      }
+      
+      input {
+        font-family: 'Lexend', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-size: var(--font-size);
+        border: 1px solid var(--stroke-color);
+        padding: 4px 3px;
+        outline: none;
+      }
+      input#filter-projects {
+        flex-grow: 2;
+      }
+    </style>
+    
+    <div class="actions">
+      <button class="action" id="new-project">New</button>
+      <button class="action" id="save-project">Save</button>
+      <button class="action" id="import-project">Import</button>
+      <input id="filter-projects" type="text" placeholder="Filter">
+      <button class="action" id="delete-project">Delete Current</button>
+    </div>
+    
+    <div class="filter">
+      
+    </div>
+    
+    <div class="projects">
+    </div>
+    
+    <input type="file" id="uploadInput" accept=".json" style="display: none;">
+  </template>
+  
+  <template id="butter-bar-template">
+    <style>
+      :host {
+        --primary-color: #f70;
+        --primary-color-lightened: #f90;
+      }
+      .butter-bar {
+        position: absolute;
+        left: calc(50% - 25vw);
+        min-height: 30px;
+        top: 50px;
+        width: 50vw;
+        border-radius: 5px;
+        background-color: var(--primary-color-lightened);
+        padding: 15px;
+        z-index: 100;
+        opacity: 0;
+        color: darkred;
+        display: none;
+        align-items: center;
+      }
+      @keyframes flash-fade {
+        0% {
+          opacity: 1;
+        }
+        75% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .flash {
+        display: flex;
+        animation: flash-fade 4.0s ease-out;
+      }
+    </style>
+    
+    <div class="butter-bar">
+      <slot></slot>
+    </div>
+  </template>
+  
+  <template id="collapsible-element-template">
+    <style>
+      .collapsible-element {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        gap: 5px;
+      }
+      .collapsible-left {
+        width: 30px;
+      }
+      .collapsible-body {
+        flex-grow: 2;
+      }
+      .collapsible-title {
+        padding-top: 3px;
+        height: 30px;
+      }
+      .collapsible-content {
+        /* max-height: 200px;
+        overflow-y: scroll;
+        overflow-x: hidden; */
+        /* white-space: preserve; */
+        width: 100%;
+        border-top: 1px dotted gray;
+        border-bottom: 1px dotted gray;
+        padding: 5px 0;
+      }
+      .collapsible-content p {
+        margin-top: 0; /* Because there's weirdness when using innerHTML. */
+      }
+      button.collapsible-toggle {
+        font-family: 'Lexend', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        border: none;
+        background-color: transparent;
+        padding: 8px;
+        width: 30px;
+        height: 30px;
+        color: var(--text-color);
+      }
+      button.collapsible-toggle:hover {
+        background-color: var(--primary-color);
+      }
+    </style>
+    
+    <div class="collapsible-element">
+      <div class="collapsible-left">
+        <button class="collapsible-toggle">→</button>
+      </div>
+      <div class="collapsible-body">
+        <div class="collapsible-title">
+          <slot name="title">Title</slot>
+        </div>
+        <div class="collapsible-content" style="display: none;"><slot></slot></div> <!-- keep this on one line because whitespace -->
+      </div>
+    </div>
+  </template>
+  
+  <template id="assets-list-template">
+    <style>
+      :host {
+        --font-size: 1rem;
+      }
+      *, *:before, *:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      input {
+        font-family: 'Lexend', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-size: var(--font-size);
+        border: 1px solid var(--stroke-color);
+        padding: 4px 3px;
+        outline: none;
+      }
+      button {
+        font-family: 'Lexend', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        border: 1px solid var(--stroke-color);
+        border-radius: 3px;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        padding: 4px 6px;
+        font-size: var(--font-size);
+        border-color: var(--border-color);
+      }
+      button:hover {
+        background-color: var(--primary-color);
+      }
+      button:active {
+        background-color: var(--primary-color-lightened);
+      }
+      #assets-header {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        right: 6px;
+        height: 62px;
+        z-index: 101;
+        
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        
+        background-color: var(--background-color);
+        border-bottom: 2px dotted var(--text-color); /* Using the text color temporarily */
+        padding-bottom: 6px;
+      }
+      #assets-header .param {
+        display: flex;
+        flex-direction: column;
+      }
+      .assets {
+        margin-top: 70px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        max-height: calc(75vh - 70px);
+      }
+      .spacer {
+        flex-grow: 2;
+      }
+      .asset {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+      #param-name {
+        width: 200px;
+      }
+      #param-url {
+        flex-grow: 2;
+      }
+      .asset .name {
+        width: 200px;
+        padding: 3px 0;
+      }
+      .asset .url {
+        flex-grow: 2;
+        padding: 3px;
+      }
+      .asset .url a {
+        color: var(--text-color);
+      }
+      .asset .url a:hover {
+        text-decoration: none;
+      }
+      @keyframes flash-fade {
+        0% {
+          border: 1px solid rgb(255, 0, 0);
+          background-color: rgba(255, 0, 0, 0.3);
+        }
+        75% {
+          border: 1px solid rgb(255, 0, 0);
+          background-color: rgba(255, 0, 0, 0.3);
+        }
+        100% {
+          border: 1px solid var(--stroke-color);
+          background-color: initial;
+        }
+      }
+      .error {
+        animation: flash-fade 4.0s ease-out;
+      }
+      button#create-new-asset[disabled] {
+        color: gray;
+      }
+      button#create-new-asset[disabled]:hover {
+        background-color: transparent;
+      }
+      #bulk-adder {
+        position: absolute;
+        z-index: 102;
+        
+        top: 10px;
+        left: 10px;
+        right: 80px;
+        height: 50vh;
+        
+        background-color: var(--background-color);
+        border: 2px solid var(--stroke-color);
+        
+        padding: 10px;
+        
+        display: flex;
+        flex-direction: column;
+      }
+      h3 {
+        margin: 0;
+      }
+      #bulk-adder textarea {
+        width: 100%;
+        flex-grow: 2;
+        
+        font-family: 'Lexend', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-size: var(--font-size);
+        border: 1px solid var(--stroke-color);
+        padding: 4px 3px;
+        outline: none;
+        resize: none;
+      }
+      #bulk-adder p {
+        margin-bottom: 0;
+      }
+      #bulk-adder pre {
+        margin-top: 0;
+      }
+      #bulk-adder .actions {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        border-bottom: 2px dotted var(--stroke-color);
+        padding-bottom: 5px;
+      }
+      #bulk-adder .actions h3 {
+        flex-grow: 2;
+      }
+      button#create-assets-in-bulk {
+        font-weight: bold;
+      }
+    </style>
+    
+    <div id="assets-header">
+      <div id="param-name" class="param">
+        <label for="new-asset-name">New Asset Name</label>
+        <input id="new-asset-name" type="text" placeholder="Short name for the asset">
+      </div>
+      
+      <div id="param-url" class="param">
+        <label for="new-asset-url">URL</label>
+        <input id="new-asset-url" type="text" placeholder="URL to the image, movie, or sound file">
+      </div>
+      
+      <div id="asset-submit" class="param">
+        <label><input id="new-asset-bulk" type="checkbox"> Bulk</label>
+        <button id="create-new-asset">Add</button>
+      </div>
+      
+      <div id="bulk-adder" style="display:none;">
+        <div class="actions">
+          <h3>Add Assets in Bulk</h3>
+          <button id="create-assets-in-bulk">Add All</button>
+          <button id="bulk-add-done">Done</button>
+        </div>
+        
+        <p>Each line should contain the asset’s name, a comma, then a URL to the asset, like this:</p>
+        <pre>character, https://example.com/character.png
+spaceship, http://localhost:8000/spaceship.png</pre>
+
+        <textarea id="bulk-adder-entries"></textarea>
+      </div>
+    </div>
+    
+    <div class="assets">
+    </div>
+  </template>
+  
+  <template id="state-manager-template">
+    <style>
+      :host {
+        --font-size: 1rem;
+      }
+      *, *:before, *:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      input {
+        font-family: 'Lexend', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-size: var(--font-size);
+        border: 1px solid var(--stroke-color);
+        padding: 4px 3px;
+        outline: none;
+      }
+      button {
+        font-family: 'Lexend', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        border: 1px solid var(--stroke-color);
+        border-radius: 3px;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        padding: 4px 6px;
+        font-size: var(--font-size);
+        border-color: var(--border-color);
+      }
+      button:hover {
+        background-color: var(--primary-color);
+      }
+      button:active {
+        background-color: var(--primary-color-lightened);
+      }
+      
+      #state-manager-header {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 2px dotted var(--text-color); /* Using the text color temporarily */
+        padding-bottom: 6px;
+      }
+      .variable-item {
+        display: flex;
+        flex-direction: row;
+      }
+      .variable-item-key {
+        width: 45%;
+      }
+      .variable-item-value {
+        width: 45%;
+      }
+    </style>
+    
+    <div id="state-manager-main">
+      <div id="state-manager-header">
+        <div class="variable-item-key">Variable Name</div>
+        <div class="variable-item-value">Value</div>
+      </div>
+      
+      <div id="state-manager-list">
+        
+      </div>
+      
+      <div class="actions">
+        
+      </div>
+    </div>
+  </template>
+</html>
