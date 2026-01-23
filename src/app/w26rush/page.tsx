@@ -107,7 +107,7 @@ export default function StudentsPage() {
                 <div className="text-sm uppercase tracking-wide text-muted">Thursday 1/22</div>
                 <div className="mt-1 text-xl md:text-2xl font-semibold tracking-tight">Speed Dating</div>
                 <p className="mt-2 text-sm md:text-base text-muted">6:00pm - 8:00pm</p>
-                <p className="text-sm md:text-base text-muted">Location TBD</p>
+                <p className="text-sm md:text-base text-muted">Mason Hall 1427</p>
               </ElectricBorder>
               <div className="p-4 rounded-2xl border border-white/10 bg-white/5 md:col-span-1">
                 <p className="text-sm md:text-base text-muted">Prepare to answer some ridiculous questions (and also have a great time)</p>
@@ -119,7 +119,7 @@ export default function StudentsPage() {
                 <div className="text-sm uppercase tracking-wide text-muted">Monday 1/26</div>
                 <div className="mt-1 text-xl md:text-2xl font-semibold tracking-tight">Case Study Workshop</div>
                 <p className="mt-2 text-sm md:text-base text-muted">7:00pm - 9:00pm</p>
-                <p className="text-sm md:text-base text-muted">Location TBD</p>
+                <p className="text-sm md:text-base text-muted">Mason Hall 1427</p>
               </ElectricBorder>
               <div className="p-4 rounded-2xl border border-white/10 bg-white/5 md:col-span-1">
                 <p className="text-sm md:text-base text-muted">Work in a group to create and present a solution to a an urban technology problem.</p>
@@ -130,8 +130,8 @@ export default function StudentsPage() {
               <ElectricBorder className="p-6 bg-white/5 md:col-span-2">
                 <div className="text-sm uppercase tracking-wide text-muted">Wednesday 1/28</div>
                 <div className="mt-1 text-xl md:text-2xl font-semibold tracking-tight">Optional Coffee Chats</div>
-                <p className="mt-2 text-sm md:text-base text-muted">Times TBD</p>
-                <p className="text-sm md:text-base text-muted">Locations TBD</p>
+                <p className="mt-2 text-sm md:text-base text-muted">Times Varied</p>
+                <p className="text-sm md:text-base text-muted">Locations Varied</p>
               </ElectricBorder>
               <div className="p-4 rounded-2xl border border-white/10 bg-white/5 md:col-span-1">
                 <p className="text-sm md:text-base text-muted">Coffee chat an URB member if you have any questions before interviews!</p>
@@ -142,8 +142,8 @@ export default function StudentsPage() {
               <ElectricBorder className="p-6 bg-white/5 md:col-span-2">
                 <div className="text-sm uppercase tracking-wide text-muted">Thursday 1/29, Friday 1/30</div>
                 <div className="mt-1 text-xl md:text-2xl font-semibold tracking-tight">Interviews</div>
-                <p className="mt-2 text-sm md:text-base text-muted">Times TBD</p>
-                <p className="text-sm md:text-base text-muted">Locations TBD</p>
+                <p className="mt-2 text-sm md:text-base text-muted">Times Varied</p>
+                <p className="text-sm md:text-base text-muted">Locations Varied</p>
               </ElectricBorder>
               <div className="p-4 rounded-2xl border border-white/10 bg-white/5 md:col-span-1">
                 <p className="text-sm md:text-base text-muted">Individual interviews will be offered to qualified applicants so that we can learn as much about you as we can.</p>
