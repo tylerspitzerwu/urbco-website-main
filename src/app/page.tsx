@@ -159,12 +159,16 @@ export default function Home() {
                 { src: "/images/company_logos/bofa.png", alt: "BofA" },
                 { src: "/images/company_logos/adobe.png", alt: "Adobe" },
                 { src: "/images/company_logos/accenture.png", alt: "Accenture" },
+                { src: "/images/company_logos/baringa.png", alt: "Baringa" },
                 { src: "/images/company_logos/datadog.svg", alt: "Datadog" },
                 { src: "/images/company_logos/lucid.jpg", alt: "Lucid" },
                 { src: "/images/company_logos/coinbase.jpg", alt: "Coinbase"},
+                { src: "/images/company_logos/smbc.webp", alt: "SMBC" },
                 { src: "/images/company_logos/kpmg.webp", alt: "KPMG" },
                 { src: "/images/company_logos/mcdonalds.webp", alt: "McDonald's" },
+                { src: "/images/company_logos/qualcomm.png", alt: "Qualcomm" },
                 { src: "/images/company_logos/aecom.jpg", alt: "AECOM" },
+                { src: "/images/company_logos/southwest.jpg", alt: "Southwest" },
                 { src: "/images/company_logos/gm.png", alt: "GM" },
               ]}
               speed={80}
