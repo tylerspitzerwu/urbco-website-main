@@ -34,7 +34,7 @@ export default function Home() {
                 apply your unique skillset, and build meaningful connections? Apply to URB!
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                <Link href="/w26rush" className="inline-flex items-center rounded-full bg-urb-maize text-urb-blue font-medium px-5 py-3 shadow-[0_0_0_1px_rgba(255,203,5,0.3)] hover:shadow-[0_0_0_3px_rgba(255,203,5,0.2)] transition-shadow">W26 Rush Page →</Link>
+                <Link href="/f26rush" className="inline-flex items-center rounded-full bg-urb-maize text-urb-blue font-medium px-5 py-3 shadow-[0_0_0_1px_rgba(255,203,5,0.3)] hover:shadow-[0_0_0_3px_rgba(255,203,5,0.2)] transition-shadow">F26 Rush Page →</Link>
               </div>
             </div>
           </div>
@@ -236,17 +236,17 @@ export default function Home() {
         </section>
 
 
-        {/* W26 Rush CTA */}
+        {/* F26 Rush CTA */}
         <section className="mx-auto max-w-4xl px-6 py-16 md:py-24">
           <div className="relative rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 md:p-12 text-center overflow-hidden">
             <ClientOnly>
               <Waves className="pointer-events-none" lineColor="rgba(255,255,255,0.15)" backgroundColor="transparent" />
             </ClientOnly>
             <h3 className="text-2xl md:text-4xl font-semibold tracking-tight">
-              Interested? <br /><br />Come meet us at our recruitment events and apply! Visit our W26 Rush page now for our recruitment timeline and our application.
+              Interested? <br /><br />Rush URB next semester :)
             </h3>
             <div className="mt-6">
-              <Link href="/w26rush" className="inline-flex items-center rounded-full bg-urb-maize text-urb-blue font-medium px-5 py-3 shadow-[0_0_0_1px_rgba(230,180,0,1)] hover:shadow-[0_0_0_3px_rgba(230,180,0,0.6)] transition-shadow">W26 Rush Page →</Link>
+              <Link href="/f26rush" className="inline-flex items-center rounded-full bg-urb-maize text-urb-blue font-medium px-5 py-3 shadow-[0_0_0_1px_rgba(230,180,0,1)] hover:shadow-[0_0_0_3px_rgba(230,180,0,0.6)] transition-shadow">F26 Rush Page →</Link>
             </div>
           </div>
         </section>

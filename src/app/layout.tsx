@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground min-h-screen flex flex-col`}>
         <header className="sticky top-0 z-50 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-white/10">
           <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3">
@@ -52,14 +52,14 @@ export default function RootLayout({
             </Link>
             <div className="flex items-center gap-8">
               <nav className="hidden md:flex items-center gap-8 text-sm text-muted">
-                <Link href="/w26rush" className="hover:text-foreground transition-colors">W26 Rush</Link>
+                <Link href="/f26rush" className="hover:text-foreground transition-colors">F26 Rush</Link>
                 <Link href="/about" className="hover:text-foreground transition-colors">About Us</Link>
               </nav>
               <Link href="https://tally.so/r/A7p7Xz" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-flex items-center rounded-full bg-urb-maize text-urb-blue font-medium px-4 py-2 shadow-[0_0_0_1px_rgba(255,203,5,0.3)] hover:shadow-[0_0_0_3px_rgba(255,203,5,0.2)] transition-shadow">Apply Now →</Link>
             </div>
           </div>
         </header>
-        {children}
+        <div className="flex-1">{children}</div>
         <footer className="border-t border-white/10 mt-20">
           <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted">
             <div className="flex items-center gap-3">
