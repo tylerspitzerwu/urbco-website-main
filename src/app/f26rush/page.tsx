@@ -56,8 +56,16 @@ const timeline: TrainGroup[] = [
     label: "Closed Rush",
     stops: [
       {
-        id: "optimization",
+        id: "slideshow-karaoke",
         code: "Fri · Sep 11",
+        title: "Slideshow Karaoke",
+        time: "5–7pm",
+        location: "MH 1449",
+        description: "Show off your impromptu presentation and collaboration skills!",
+      },
+      {
+        id: "optimization",
+        code: "Mon · Sep 14",
         title: "Optimization Challenge",
         time: "Time TBD",
         location: "Location TBD",
@@ -65,19 +73,11 @@ const timeline: TrainGroup[] = [
       },
       {
         id: "speed-dating",
-        code: "Mon · Sep 14",
+        code: "Thu · Sep 17",
         title: "Speed Dating",
         time: "TBD (2 sessions)",
         location: "Location TBD",
         description: "Answer a barrage of fun questions from URB members.",
-      },
-      {
-        id: "slideshow-karaoke",
-        code: "Thu · Sep 17",
-        title: "Slideshow Karaoke",
-        time: "TBD (2 sessions)",
-        location: "Location TBD",
-        description: "Show off your impromptu presentation and collaboration skills!",
       },
       {
         id: "case-study",
