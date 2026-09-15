@@ -15,7 +15,7 @@ const executiveBoard: TeamMember[] = [
   {
     name: "Joyce Kim",
     role: "VP Marketing",
-    major: "Information Analysis & HCI",
+    major: "Information Analysis + HCI",
     image: "/images/about_pics/headshots/joyce.jpeg",
     imagePosition: "center 25%",
     linkedin: "https://www.linkedin.com/in/joyce-kim-341176378/",
@@ -38,7 +38,7 @@ const executiveBoard: TeamMember[] = [
   {
     name: "Pranav Joshi",
     role: "VP Professional Development",
-    major: "Computer Science",
+    major: "Computer Science + Sociology",
     image: "/images/about_pics/headshots/pranav.jpg",
     linkedin: "https://www.linkedin.com/in/pranavv-joshi/",
   },
@@ -61,7 +61,7 @@ const executiveBoard: TeamMember[] = [
   {
     name: "Phoebe Knoll",
     role: "VP Community",
-    major: "Economics & Environmental Science",
+    major: "Economics + Environmental Science",
     image: "/images/about_pics/headshots/phoebe.jpg",
     linkedin: "https://www.linkedin.com/in/phoebeknoll/",
   },
