@@ -85,7 +85,7 @@ const timeline: TrainGroup[] = [
         title: "Professional Development Event",
         time: "Time TBD",
         location: "Location TBD",
-        description: "Work in a group to create and present a solution to a real urban technology problem.",
+        description: "Showcase your professional skills through various group activities.",
       },
       {
         id: "coffee-chats",
